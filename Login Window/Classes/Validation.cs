@@ -10,9 +10,10 @@ namespace Login_Window
     {
         public static bool Validation_Method(string Login, string Password)
         {
-            User user1 = new User("Kostia", "123456");
-            if(Login == user1.Login && Password == user1.Password)
-            return true;
+            var listUsers = User.GetUserList();
+            foreach(User user in listUsers)
+                if (Login == user.Login && Password == user.Password)
+                    return true;
             return false;
         }
     }
