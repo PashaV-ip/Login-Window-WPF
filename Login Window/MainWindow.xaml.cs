@@ -33,7 +33,12 @@ namespace Login_Window
             else
             {
                 if (Validation.Validation_Method(loginTextBox.Text, passwordBox.Password) == true)
+                {
                     MessageBox.Show("Вы успешно авторизировались!", "успех..", MessageBoxButton.OK, MessageBoxImage.Information);
+                    WindowWithSchedule windowWithSchedule = new WindowWithSchedule();
+                    windowWithSchedule.Show();
+                    this.Close();
+                }
                 else MessageBox.Show("Неправельный логин или пароль!", "Ошибка..", MessageBoxButton.OK, MessageBoxImage.Warning);
             }
         }
