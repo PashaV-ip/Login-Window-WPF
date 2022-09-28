@@ -57,6 +57,9 @@
     </ApplicationDefinition>
     <Compile Include="Classes\Validation.cs" />
     <Compile Include="Classes\User.cs" />
+    <Compile Include="Core\FileReader.cs" />
+    <Compile Include="Models\Lessons.cs" />
+    <Compile Include="Models\Teacher.cs" />
     <Compile Include="PageWithSchedule.xaml.cs">
       <DependentUpon>PageWithSchedule.xaml</DependentUpon>
     </Compile>
@@ -113,6 +116,10 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Files\Lesson.txt" />
+    <Resource Include="Files\Teachers.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

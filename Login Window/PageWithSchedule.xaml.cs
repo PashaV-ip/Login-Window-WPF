@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Login_Window.Core;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,9 +21,12 @@ namespace Login_Window
     /// </summary>
     public partial class PageWithSchedule : Page
     {
+        private readonly FileReader _fileReader;
         public PageWithSchedule()
         {
             InitializeComponent();
+            _fileReader = new FileReader();
+            LessonComboBox.ItemsSource = _fileReader.FileReadLessons();
         }
     }
 }
