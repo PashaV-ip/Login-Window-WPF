@@ -9,10 +9,10 @@ using System.Threading.Tasks;
 
 namespace Login_Window.Core
 {
-    public class FileReader
+    public static class FileReader
     {
         #region Чтение файла с уроками
-        public ObservableCollection<Lessons> FileReadLessons()
+        public static ObservableCollection<Lessons> FileReadLessons()
         {
             var lessonList = new ObservableCollection<Lessons>();
             using (StreamReader streamReader = new StreamReader(@"..\..\Files\Lesson.txt"))
@@ -36,7 +36,7 @@ namespace Login_Window.Core
         #endregion
 
         #region Чтение файла с Учителями
-        public ObservableCollection<Teacher> FileReadTeacher()
+        public static ObservableCollection<Teacher> FileReadTeacher()
         {
             var teacherList = new ObservableCollection<Teacher>();
             using (StreamReader streamReader = new StreamReader(@"..\..\Files\Teachers.txt"))

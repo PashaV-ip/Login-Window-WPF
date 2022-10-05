@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Login_Window.ViewModel;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -28,24 +29,17 @@ namespace Login_Window
 
         private void Entrance_Click(object sender, RoutedEventArgs e)
         {
-            if (string.IsNullOrWhiteSpace(loginTextBox.Text) || string.IsNullOrWhiteSpace(passwordBox.Password))
-                MessageBox.Show("Какое-то поле пустое!", "Ошибка..", MessageBoxButton.OK, MessageBoxImage.Warning);
-            else
-            {
-                if (Validation.Validation_Method(loginTextBox.Text, passwordBox.Password) == true)
-                {
-                    MessageBox.Show("Вы успешно авторизировались!", "успех..", MessageBoxButton.OK, MessageBoxImage.Information);
-                    WindowWithSchedule windowWithSchedule = new WindowWithSchedule();
-                    windowWithSchedule.Show();
-                    this.Close();
-                }
-                else MessageBox.Show("Неправельный логин или пароль!", "Ошибка..", MessageBoxButton.OK, MessageBoxImage.Warning);
-            }
+            (DataContext as MainWindowViewModel).ValidationMethod();
         }
 
         private void Exit_Click(object sender, RoutedEventArgs e)
         {
-            Close();
+            (DataContext as MainWindowViewModel).ExitMethod();
+        }
+
+        private void passwordBox_PasswordChanged(object sender, RoutedEventArgs e)
+        {
+            (DataContext as MainWindowViewModel).User.Password = passwordBox.Password;
         }
     }
 }

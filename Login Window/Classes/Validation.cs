@@ -8,11 +8,11 @@ namespace Login_Window
 {
     public static class Validation
     {
-        public static bool Validation_Method(string Login, string Password)
+        public static bool Validation_Method(User userVal)
         {
             var listUsers = User.GetUserList();
             foreach(User user in listUsers)
-                if (Login == user.Login && Password == user.Password)
+                if (userVal.Login == user.Login && userVal.Password == user.Password)
                     return true;
             return false;
         }

@@ -1,5 +1,6 @@
 ﻿using Login_Window.Core;
 using Login_Window.Models;
+using Login_Window.ViewModel;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -22,22 +23,24 @@ namespace Login_Window
     /// </summary>
     public partial class PageWithSchedule : Page
     {
-        private readonly FileReader _fileReader;
+        //private readonly FileReader _fileReader;
         public PageWithSchedule()
         {
             InitializeComponent();
-            _fileReader = new FileReader();
-            LessonComboBox.ItemsSource = _fileReader.FileReadLessons();
-            TeacherComboBox.ItemsSource = _fileReader.FileReadTeacher();
+            //_fileReader = new FileReader();
+            //LessonComboBox.ItemsSource = FileReader.FileReadLessons();
+            //TeacherComboBox.ItemsSource = FileReader.FileReadTeacher();
+            (DataContext as MainWindowViewModel).ReadFiles();
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            if (TeacherComboBox.SelectedItem != null && LessonComboBox.SelectedItem != null)
-            {
-                string lessonInfo = (TeacherComboBox.SelectedItem as Teacher).NameTeacher + ", " + (LessonComboBox.SelectedItem as Lessons).Name;
-                ListLessonsInfo.Items.Add(lessonInfo);
-            }
+            (DataContext as MainWindowViewModel).AddListViewInfo(TeacherComboBox.SelectedItem, LessonComboBox.SelectedItem);
+            //if (TeacherComboBox.SelectedItem != null && LessonComboBox.SelectedItem != null)
+            //{
+            //    string lessonInfo = (TeacherComboBox.SelectedItem as Teacher).NameTeacher + ", " + (LessonComboBox.SelectedItem as Lessons).Name;
+            //    ListLessonsInfo.Items.Add(lessonInfo);
+            //}
         }
     }
 }

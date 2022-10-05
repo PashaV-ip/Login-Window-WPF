@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Login_Window.ViewModel;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,6 +24,11 @@ namespace Login_Window
         {
             InitializeComponent();
             FrameWithPages.Navigate(new PageWithSchedule());
+        }
+
+        private void ScheduleButton_Click(object sender, RoutedEventArgs e)
+        {
+            (DataContext as MainWindowViewModel).ScheduleOpenPage();
         }
     }
 }

@@ -28,7 +28,7 @@
                     <ColumnDefinition/>
                     <ColumnDefinition/>
                 </Grid.ColumnDefinitions>
-                <Button Name="ScheduleButton" Content="Расписание" FontSize="20" Margin="15"/>
+                <Button Name="ScheduleButton" Click="ScheduleButton_Click" Content="Расписание" FontSize="20" Margin="15"/>
                 <Button Name="Teacher" Grid.Column="1" Content="Учитель" FontSize="20" Margin="15"/>
             </Grid>
         </Grid>
