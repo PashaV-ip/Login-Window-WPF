@@ -13,5 +13,10 @@ namespace Login_Window.Models
         public string LastName { get; set; }
         public string Login { get; set; }
         public string Password { get; set; }
+        public string NameTeacher
+        {
+            get => FirstName + " " + LastName;
+            set { }
+        }
     }
 }

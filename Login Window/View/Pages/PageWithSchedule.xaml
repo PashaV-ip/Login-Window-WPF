@@ -22,9 +22,9 @@
         </Grid.ColumnDefinitions>
         <TextBlock Text="Выберите учителя:" VerticalAlignment="Center" FontSize="18" Margin="30, 0, 0, 0"/>
         <TextBlock Grid.Row="1" Text="Выберите предмет:" VerticalAlignment="Center" FontSize="18" Margin="30, 0, 0, 0"/>
-        <ComboBox Name="TeacherComboBox" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center" MinWidth="150"/>
-        <ComboBox Name="LessonComboBox" Grid.Column="1" Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Center" MinWidth="150"/>
-        <Button Grid.Row="2" Grid.Column="1" Content="Добавить" FontSize="18" Margin="20" VerticalAlignment="Center" HorizontalAlignment="Right" MinWidth="150" MinHeight="40"/>
-        <ListView Grid.Row="3" Grid.ColumnSpan="2" BorderThickness="1" BorderBrush="Gray" Margin="10, 0, 10, 10"/>
+        <ComboBox Name="TeacherComboBox" Grid.Column="1" DisplayMemberPath="NameTeacher" VerticalAlignment="Center" HorizontalAlignment="Center" MinWidth="150"/>
+        <ComboBox Name="LessonComboBox" Grid.Column="1" Grid.Row="1" DisplayMemberPath="Name" VerticalAlignment="Center" HorizontalAlignment="Center" MinWidth="150"/>
+        <Button Grid.Row="2" Grid.Column="1" Click="Button_Click" Content="Добавить" FontSize="18" Margin="20" VerticalAlignment="Center" HorizontalAlignment="Right" MinWidth="150" MinHeight="40"/>
+        <ListView Name="ListLessonsInfo" Grid.Row="3" Grid.ColumnSpan="2" BorderThickness="1" BorderBrush="Gray" Margin="10, 0, 10, 10"/>
     </Grid>
 </Page>

@@ -1,4 +1,5 @@
 ﻿using Login_Window.Core;
+using Login_Window.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -27,6 +28,16 @@ namespace Login_Window
             InitializeComponent();
             _fileReader = new FileReader();
             LessonComboBox.ItemsSource = _fileReader.FileReadLessons();
+            TeacherComboBox.ItemsSource = _fileReader.FileReadTeacher();
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            if (TeacherComboBox.SelectedItem != null && LessonComboBox.SelectedItem != null)
+            {
+                string lessonInfo = (TeacherComboBox.SelectedItem as Teacher).NameTeacher + ", " + (LessonComboBox.SelectedItem as Lessons).Name;
+                ListLessonsInfo.Items.Add(lessonInfo);
+            }
         }
     }
 }

@@ -11,10 +11,11 @@ namespace Login_Window.Core
 {
     public class FileReader
     {
+        #region Чтение файла с уроками
         public ObservableCollection<Lessons> FileReadLessons()
         {
             var lessonList = new ObservableCollection<Lessons>();
-            using (StreamReader streamReader = new StreamReader(@"...\Files\Lesson.txt"))
+            using (StreamReader streamReader = new StreamReader(@"..\..\Files\Lesson.txt"))
             {
                 foreach (var item in streamReader.ReadToEnd().Split('\n'))
                 {
@@ -32,18 +33,17 @@ namespace Login_Window.Core
             }
             return lessonList;
         }
+        #endregion
 
-
-
-
+        #region Чтение файла с Учителями
         public ObservableCollection<Teacher> FileReadTeacher()
         {
             var teacherList = new ObservableCollection<Teacher>();
-            using (StreamReader streamReader = new StreamReader(@"\Login Window\Files\Teacher.txt"))
+            using (StreamReader streamReader = new StreamReader(@"..\..\Files\Teachers.txt"))
             {
                 foreach (var item in streamReader.ReadToEnd().Split('\n'))
                 {
-                    var arrayString = item.Split('?');
+                    var arrayString = item.Split(',');
                     if (arrayString[0] != "ID")
                     {
                         Teacher teacher = new Teacher()
@@ -60,5 +60,6 @@ namespace Login_Window.Core
             }
             return teacherList;
         }
+        #endregion
     }
 }
