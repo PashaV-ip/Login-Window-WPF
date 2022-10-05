@@ -14,9 +14,6 @@ namespace Login_Window.ViewModel
     {
         private User _user;
         private string _information;
-        private ObservableCollection<Lessons> _lessonList;
-        private ObservableCollection<Teacher> _teacherList;
-        private ObservableCollection<string> _listInfoForLessons;
         public User User
         {
             get => _user;
@@ -33,33 +30,6 @@ namespace Login_Window.ViewModel
             {
                 _information = value;
                 OnPropertyChanged(nameof(Information));
-            }
-        }
-        public ObservableCollection<Lessons> LessonList
-        {
-            get => _lessonList;
-            set
-            {
-                _lessonList = value;
-                OnPropertyChanged(nameof(LessonList));
-            }
-        }
-        public ObservableCollection<Teacher> TeacherList
-        {
-            get => _teacherList;
-            set
-            {
-                _teacherList = value;
-                OnPropertyChanged(nameof(TeacherList));
-            }
-        }
-        public ObservableCollection<string> ListInfoForLessons
-        {
-            get => _listInfoForLessons;
-            set
-            {
-                _listInfoForLessons = value;
-                OnPropertyChanged(nameof(ListInfoForLessons));
             }
         }
         public void ExitMethod()
@@ -88,36 +58,10 @@ namespace Login_Window.ViewModel
                 else MessageBox.Show("Неправельный логин или пароль!", "Ошибка..", MessageBoxButton.OK, MessageBoxImage.Warning);
             }
         }
-        public void ScheduleOpenPage()
-        {
-            WindowWithSchedule windowWithSchedule = new WindowWithSchedule();
-            windowWithSchedule.FrameWithPages.Navigate(new PageWithSchedule());
-        }
-
-        public void ReadFiles()
-        {
-            LessonList = FileReader.FileReadLessons();
-            TeacherList = FileReader.FileReadTeacher();
-        }
-
-        public void AddListViewInfo(object TeacherSelected, object LessonSelected)
-        {
-            if (TeacherSelected != null && LessonSelected != null)
-            {
-                string lessonInfo = (TeacherSelected as Teacher).NameTeacher + ", " + (LessonSelected as Lessons).Name;
-                ObservableCollection<string> lessons = ListInfoForLessons;
-                lessons.Add(lessonInfo);
-                ListInfoForLessons = lessons;
-                //ListLessonsInfo.Items.Add(lessonInfo);
-            }
-        }
 
         public MainWindowViewModel()
         {
             _user = new User();
-            _lessonList = new ObservableCollection<Lessons>();
-            _teacherList = new ObservableCollection<Teacher>();
-            _listInfoForLessons = new ObservableCollection<string>();
         }
     }
 }

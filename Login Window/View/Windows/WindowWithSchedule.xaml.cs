@@ -28,7 +28,7 @@ namespace Login_Window
 
         private void ScheduleButton_Click(object sender, RoutedEventArgs e)
         {
-            (DataContext as MainWindowViewModel).ScheduleOpenPage();
+            (DataContext as WindowWithScheduleViewModel).ScheduleOpenPage();
         }
     }
 }
