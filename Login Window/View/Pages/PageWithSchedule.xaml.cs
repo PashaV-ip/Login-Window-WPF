@@ -23,24 +23,15 @@ namespace Login_Window
     /// </summary>
     public partial class PageWithSchedule : Page
     {
-        //private readonly FileReader _fileReader;
         public PageWithSchedule()
         {
             InitializeComponent();
-            //_fileReader = new FileReader();
-            //LessonComboBox.ItemsSource = FileReader.FileReadLessons();
-            //TeacherComboBox.ItemsSource = FileReader.FileReadTeacher();
             (DataContext as PageWithScheduleViewModel).ReadFiles();
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             (DataContext as PageWithScheduleViewModel).AddListViewInfo(TeacherComboBox.SelectedItem, LessonComboBox.SelectedItem);
-            //if (TeacherComboBox.SelectedItem != null && LessonComboBox.SelectedItem != null)
-            //{
-            //    string lessonInfo = (TeacherComboBox.SelectedItem as Teacher).NameTeacher + ", " + (LessonComboBox.SelectedItem as Lessons).Name;
-            //    ListLessonsInfo.Items.Add(lessonInfo);
-            //}
         }
     }
 }

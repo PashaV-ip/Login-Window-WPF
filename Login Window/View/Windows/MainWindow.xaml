@@ -37,8 +37,8 @@
                 <ColumnDefinition/>
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
-            <Button x:Name="Entrance" Click="Entrance_Click" Margin="30" Content="Войти" FontSize="20"/>
-            <Button x:Name="Exit" Click="Exit_Click" Grid.Column="1" Margin="30" Content="Выход" FontSize="20"/>
+            <Button x:Name="Entrance" Command="{Binding ValidationCommand}" Margin="30" Content="Войти" FontSize="20"/>
+            <Button x:Name="Exit" Command="{Binding ExitCommand}" Grid.Column="1" Margin="30" Content="Выход" FontSize="20"/>
         </Grid>
     </Grid>
 </Window>

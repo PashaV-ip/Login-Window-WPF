@@ -1,5 +1,4 @@
-﻿using Login_Window.ViewModel;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -11,19 +10,19 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace Login_Window
+namespace Login_Window.View.Pages
 {
     /// <summary>
-    /// Логика взаимодействия для WindowWithSchedule.xaml
+    /// Логика взаимодействия для PageTeacher.xaml
     /// </summary>
-    public partial class WindowWithSchedule : Window
+    public partial class PageTeacher : Page
     {
-        public WindowWithSchedule()
+        public PageTeacher()
         {
             InitializeComponent();
-            FrameWithPages.Navigate(new PageWithSchedule());
         }
     }
 }

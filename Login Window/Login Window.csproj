@@ -56,6 +56,7 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Classes\Validation.cs" />
+    <Compile Include="Command\RelativCommand.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Core\FileReader.cs" />
     <Compile Include="Models\Lessons.cs" />
@@ -64,6 +65,9 @@
     <Compile Include="ViewModel\MainWindowViewModel.cs" />
     <Compile Include="ViewModel\PageWithScheduleViewModel.cs" />
     <Compile Include="ViewModel\WindowWithScheduleViewModel.cs" />
+    <Compile Include="View\Pages\PageTeacher.xaml.cs">
+      <DependentUpon>PageTeacher.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\Pages\PageWithSchedule.xaml.cs">
       <DependentUpon>PageWithSchedule.xaml</DependentUpon>
     </Compile>
@@ -71,6 +75,10 @@
       <DependentUpon>WindowWithSchedule.xaml</DependentUpon>
     </Compile>
     <Page Include="Styl\ButtonsStyle.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Pages\PageTeacher.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

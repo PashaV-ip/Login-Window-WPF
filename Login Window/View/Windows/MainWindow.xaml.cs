@@ -24,19 +24,7 @@ namespace Login_Window
         public MainWindow()
         {
             InitializeComponent();
-            
         }
-
-        private void Entrance_Click(object sender, RoutedEventArgs e)
-        {
-            (DataContext as MainWindowViewModel).ValidationMethod();
-        }
-
-        private void Exit_Click(object sender, RoutedEventArgs e)
-        {
-            (DataContext as MainWindowViewModel).ExitMethod();
-        }
-
         private void passwordBox_PasswordChanged(object sender, RoutedEventArgs e)
         {
             (DataContext as MainWindowViewModel).User.Password = passwordBox.Password;
