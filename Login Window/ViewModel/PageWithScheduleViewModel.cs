@@ -43,10 +43,10 @@ namespace Login_Window.ViewModel
                 OnPropertyChanged(nameof(ListInfoForLessons));
             }
         }
-        public void ReadFiles()
+        public async void ReadFiles()
         {
-            LessonList = FileReader.FileReadLessons();
-            TeacherList = FileReader.FileReadTeacher();
+            LessonList = await FileReader.FileReadLessons();
+            TeacherList = await FileReader.FileReadTeacher();
         }
 
         public void AddListViewInfo(object TeacherSelected, object LessonSelected)

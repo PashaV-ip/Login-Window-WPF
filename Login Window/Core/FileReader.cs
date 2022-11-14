@@ -12,12 +12,13 @@ namespace Login_Window.Core
     public static class FileReader
     {
         #region Чтение файла с уроками
-        public static ObservableCollection<Lessons> FileReadLessons()
+        public async static Task<ObservableCollection<Lessons>> FileReadLessons()
         {
             var lessonList = new ObservableCollection<Lessons>();
             using (StreamReader streamReader = new StreamReader(@"..\..\Files\Lesson.txt"))
             {
-                foreach (var item in streamReader.ReadToEnd().Split('\n'))
+                string asyncLessonText = await streamReader.ReadToEndAsync();
+                foreach (var item in asyncLessonText.Split('\n'))
                 {
                     var arrayString = item.Split('?');
                     if (arrayString[0] != "ID")
@@ -36,12 +37,13 @@ namespace Login_Window.Core
         #endregion
 
         #region Чтение файла с Учителями
-        public static ObservableCollection<Teacher> FileReadTeacher()
+        public async static Task<ObservableCollection<Teacher>> FileReadTeacher()
         {
             var teacherList = new ObservableCollection<Teacher>();
             using (StreamReader streamReader = new StreamReader(@"..\..\Files\Teachers.txt"))
             {
-                foreach (var item in streamReader.ReadToEnd().Split('\n'))
+                string asyncTeacherText = await streamReader.ReadToEndAsync();
+                foreach (var item in asyncTeacherText.Split('\n'))
                 {
                     var arrayString = item.Split(',');
                     if (arrayString[0] != "ID")
